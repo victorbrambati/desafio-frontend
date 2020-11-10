@@ -20,14 +20,10 @@ function App() {
   const backOrNextUrl = `pokemon?offset=${backOrNext}&limit=33`;
 
   useEffect(() => {
-    api
-      .get(
-        `${backOrNext === 0 ? 'pokemon' : backOrNext !== 0 && backOrNextUrl}`
-      )
-      .then((response) => {
-        setPokemons(response.data);
-      });
-  }, [backOrNext, backOrNextUrl]);
+    api.get(`${backOrNextUrl}`).then((response) => {
+      setPokemons(response.data);
+    });
+  }, [backOrNextUrl]);
 
   if (!pokemons) {
     return <div />;
