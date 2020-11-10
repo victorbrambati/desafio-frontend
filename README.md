@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+<h1 align="center">
+    Pokedex
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/victorbrambati/desafio-frontend.svg">
 
-## Available Scripts
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/victorbrambati/desafio-frontend.svg">
+  <a href="https://github.com/victorbrambati/desafio-frontend/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/victorbrambati/desafio-frontend.svg">
+  </a>
 
-In the project directory, you can run:
+  <a href="https://github.com/victorbrambati/desafio-frontend/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/victorbrambati/desafio-frontend.svg">
+  </a>
+
+  <img alt="GitHub" src="https://img.shields.io/github/license/victorbrambati/desafio-frontend.svg">
+</p>
+
+<h4 align="center">
+Desafio front-end @redevistorias
+
+</h4>
+
+![App Screenshot](https://res.cloudinary.com/victorbrambati/image/upload/v1605018532/pokedexDesktop_i6ekfc.png)
+
+  </a>
+</p>
+
+## 🎉 Como iniciar
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Irá abrir em modo de desenvolvimento.\
+Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📂 Organização
 
-### `yarn test`
+- Todos os components tem seu próprio arquivo de estilo
+- Pasta separada para estilo global e icons
+- Base url para consumo de api
+- Usando type ao invés de interface para tipar a props e não a função
+- Uma unica página foi usada
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⛔ Dificuldades
 
-### `yarn build`
+O que mais achei complexo foi achar se o pokemon evolui ou não. pois na api onde fica o [pokemon](https://pokeapi.co/api/v2/pokemon/13) não tem essa parte de evolução, então tenho que pegar o id e ir para outra página chamada [pokemon-species](https://pokeapi.co/api/v2/pokemon-species/13) e depois pegar o id do [evolution-chain](https://pokeapi.co/api/v2/evolution-chain/5) pois esse id é diferente do Pokemon e no final consumir a api.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Tecnologias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Esse projeto está sendo feito com as seguintes tecnologias:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ReactJS](https://reactjs.org/)
+- [Typescript][ts]
+- [styled-components](https://www.styled-components.com/)
+- [VS Code][vscode] com [ESLint][vceslint]
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Made with ♥ by Victor Brambati 🌊 [Get in touch!](https://www.linkedin.com/in/victor-brambati-44b054172/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[ts]: https://www.typescriptlang.org
+[vscode]: https://code.visualstudio.com/
+[yarn]: https://yarnpkg.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
