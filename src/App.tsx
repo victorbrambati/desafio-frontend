@@ -1,25 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import api from './services/api';
+import Card from './components/Card';
+import GlobalStyles from './styles/GlobalStyles';
+import { Container, Wrapper } from './styles/AppStyle';
+import Header from './components/Header';
+
+type Pokemons = {
+  count: number;
+  previous: string;
+  results: {
+    name: string;
+  }[];
+};
 
 function App() {
+  const [pokemons, setPokemons] = useState<Pokemons>();
+  const [backOrNext, setBackOrNext] = useState(0);
+
+  const backOrNextUrl = `pokemon?offset=${backOrNext}&limit=33`;
+
+  useEffect(() => {
+    api
+      .get(
+        `${backOrNext === 0 ? 'pokemon' : backOrNext !== 0 && backOrNextUrl}`
+      )
+      .then((response) => {
+        setPokemons(response.data);
+      });
+  }, [backOrNext, backOrNextUrl]);
+
+  if (!pokemons) {
+    return <div />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container>
+        <Header backOrNext={backOrNext} setBackOrNext={setBackOrNext} />
+        <h1>
+          {pokemons?.count} <b>Pokemons</b> encontrados
+        </h1>
+        <Wrapper>
+          {pokemons?.results.map((e) => {
+            return <Card key={e.name} name={e.name} />;
+          })}
+        </Wrapper>
+      </Container>
+      <GlobalStyles />
+    </>
   );
 }
 
